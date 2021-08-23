@@ -1,0 +1,31 @@
+.sidebar {
+	@include flex(center, flex-start);
+	height: 45px;
+    padding: 3px 6px;
+    margin-bottom: 5px;
+
+	&__icon img {
+		width: 31px;
+		height: 31px;
+		margin-right: 10px;
+        margin-top: 2px;
+	}
+
+	&__title {
+		text-align: left;
+		color: $txt-white-color;
+		font-size: 12px;
+	}
+
+    &:hover {
+        background: #3a3b3c;
+		border-radius: 8px;
+    }
+
+	@include mobile {
+		
+		&__title {
+			color: $txt-color-mobile;
+		}
+	}
+}

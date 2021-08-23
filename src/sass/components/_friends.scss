@@ -1,0 +1,27 @@
+.friend {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	padding: 10px 0 10px 10px;
+
+	&__avatar {
+		cursor: pointer;
+		img {
+			width: 38px;
+			height: 38px;
+			object-fit: cover;
+			clip-path: circle(50% at 50% 50%);
+		}
+	}
+
+	&__name {
+		margin-top: 5px;
+		color: #b2bec3;
+		font-weight: 600;
+		font-size: 15px;
+	}
+	
+	&:hover {
+        background: #3a3b3c;
+		border-radius: 8px;
+    }
+}

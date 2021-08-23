@@ -1,0 +1,428 @@
+.header {
+	@include flex(center, space-between);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: $header-height;
+	padding: 0 15px;
+	background-color: $second-bg;
+	color: $main-color;
+	box-shadow: $box-shadow;
+	z-index: 99;
+
+	@include tablet {
+		padding: 0 10px;
+	}
+
+	@include mobile {
+		display: block;
+		background-color: $txt-white-color;
+		color: $txt-color-mobile;
+		height: $header-mobile-height;
+		box-shadow: $box-shadow-mobile;
+		padding: 0;
+	}
+
+	&__left {
+		width: 25%;
+		text-align: left;
+		display: flex;
+		align-items: center;
+
+		&__logo {
+			width: 48px;
+			height: 48px;
+			margin-right: 5px;
+		}
+
+		&__input__icons {
+			width: 72%;
+
+			i {
+				position: absolute;
+			}
+
+			.icon {
+				padding: 13px 15px;
+				color: #8a8a8a;
+				min-width: 20px;
+				text-align: center;
+				margin-right: 20px;
+				font-weight: bold;
+				font-size: 17px;
+			}
+
+			.input-field {
+				width: 100%;
+				padding: 12px 0 12px 40px;
+				background: #3a3b3c;
+				border: none;
+				border-radius: 25px;
+				font-size: 15px;
+				color: $txt-input-color;
+
+				&:focus {
+					outline: none;
+				}
+			}
+			.input-field::placeholder {
+				color: $txt-input-color;
+			}
+		}
+
+		@include tablet {
+			&__input__icons {
+				width: 20%;
+
+				.icon {
+					padding: 10px 10px;
+					font-size: 22px;
+					font-weight: 300;
+				}
+			}
+		}
+
+		@include mobile {
+			padding: 2px 10px 5px 10px;
+			background-color: #2980b9;
+			width: 100%;
+			
+			&__logo {
+				width: 40px;
+				height: 40px;
+				margin-right: 5px;
+			}
+
+			&__input__icons {
+				width: 100%;
+
+				.icon {
+					padding: 10px 0 10px 40px;
+					font-size: 20px;
+					color: $txt-white-color;
+				}
+				
+				input {
+					color: $txt-white-color;
+				}
+
+				.input-field {
+					padding: 10px 0 10px 70px;
+					border-radius: 0;
+					border: none;
+					background-color: transparent;
+					border-bottom: 1px solid $txt-white-color;
+
+					&::placeholder {
+						color: $txt-white-color;
+						font-weight: 300;
+					}
+				}
+			}
+		}
+	}
+
+	&__center {
+		@include flex(center, center);
+		text-align: center;
+		width: 50%;
+
+		p {
+			@include flex(center, center);
+			width: 17%;
+			height: $header-height;
+			text-align: center;
+			cursor: pointer;
+
+			i {
+				font-size: 27px;
+				font-weight: 300;
+			}
+
+			span {
+				display: none;
+			}
+
+			&:hover {
+				background: #3a3b3c;
+				border-radius: 5px;
+				height: 50px;
+				border: none;
+			}
+
+			&:last-child {
+				display: none;
+			}
+		}
+
+		&__active__icon {
+			border-bottom: 2px solid $txt-second-color;
+
+			i {
+				color: $txt-second-color !important;
+			}
+		}
+
+		@include tablet {
+			p {
+				&:last-child {
+					display: flex;
+				}
+				&:nth-child(5) {
+					display: none;
+				}
+
+				i {
+					font-size: 23px;
+				}
+			}
+		}
+
+		@include mobile {
+			@include flex(center, space-between);
+			width: 100%;
+			
+			p {
+				&:hover {
+					background: transparent;
+					border-radius: 0;
+					border: none;
+				}
+			}
+			&__active__icon {
+				border-bottom: 3px solid $txt-second-color;
+			}
+		}
+	}
+
+	&__right {
+		@include flex(center, flex-end);
+		width: 25%;
+		position: relative;
+
+		&__user {
+			display: flex;
+			align-items: center;
+			height: 40px;
+			margin-right: 5px;
+			transition: 0.2s;
+			cursor: pointer;
+
+			img {
+				width: 30px;
+				height: 30px;
+				margin-right: 5px;
+			}
+
+			span {
+				color: $main-color;
+				font-size: 15px;
+				font-weight: 500;
+			}
+
+			&:hover {
+				background: #3a3b3c;
+				border-radius: 25px;
+				padding: 0 7px;
+			}
+		}
+
+		&__links {
+			i {
+				margin-left: 10px;
+				background: #404041;
+				padding: 8px;
+				border-radius: 100%;
+				color: $main-color;
+				cursor: pointer;
+				transition: 0.3s;
+				font-size: 23px;
+
+				&:hover {
+					background: #4e4f50;
+				}
+			}
+		}
+
+		.hidden-box__message{
+			display: none;
+		}
+
+		.box__message {
+			display: block;
+			position: absolute;
+			top: 100%;
+			margin-top: 10px;
+			background-color: $second-bg;
+			width: 100%;
+			padding: 0 10px 10px 10px;
+			border-radius: 5px;
+			z-index: 99;
+
+			&__name {
+				@include flex(center, space-between);
+
+				h3 {
+					padding: 15px 0;
+					font-size: 24px;
+				}
+
+				i {
+					font-size: 24px;
+					padding: 0 10px;
+				}
+			}
+
+			&__search {
+				display: flex;
+				align-items: center;
+
+				input {
+					height: 40px;
+					border: none;
+					outline: none;
+					width: 100%;
+					background: #3a3b3c;
+					border-radius: 30px;
+					padding: 0 40px;
+					color: $main-color;
+				}
+
+			}
+
+			&__friend {
+				margin-top: 20px;
+				&__list {
+					display: grid;
+					grid-template-columns: 20% 70% 10%;
+					padding: 10px 0;
+
+					img {
+						width: 43px;
+						height: 43px;
+						object-fit: cover;
+						clip-path: circle(50% at 50% 50%);
+					}
+	
+					p {
+						
+					}
+	
+					&__active {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+
+		.hidden-box__user{
+			display: none;
+		}
+
+		.box__user {
+			display: block;
+			position: absolute;
+			top: 100%;
+			margin-top: 10px;
+			background-color: $second-bg;
+			width: 100%;
+			padding: 0 10px 10px 10px;
+			border-radius: 5px;
+			z-index: 99;
+
+			&__info {
+				display: grid;
+				grid-template-columns: 20% 80%;
+				gap: 15px;
+				border-bottom: 1px solid $main-bg-mobile;
+				padding: 10px 10px 20px 10px;
+
+				img {
+					width: 60px;
+					height: 60px;
+					object-fit: cover;
+				}
+
+				&__name {
+					p {
+						font-size: 18px;
+						font-weight: 600;
+					}
+					span {
+						font-size: 14px;
+					}
+				}
+
+				&:hover {
+					background: #3a3b3c;
+					border-radius: 8px;
+				}
+			}
+
+			&__setting {
+				margin-top: 20px;
+				display: grid;
+				grid-template-columns: 10% 80% 10%;
+				gap: 20px;
+
+				&__icon {
+					
+					ul{
+						li{
+							i {
+								padding: 8px;
+								border-radius: 100%;
+								color: #e7e9ed;
+								cursor: pointer;
+								transition: 0.3s;
+								font-size: 23px;
+								margin-bottom: 10px;
+								background: #404041;
+
+								&:hover {
+									background: #4e4f50;
+								}
+							}
+						}
+					}
+				}
+
+				&__name {
+					ul {
+						li {
+							p {
+								font-size: 17px;
+								padding: 8px 0;
+								margin-bottom: 10px;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include tablet {
+			&__user {
+				display: none;
+			}
+			&__links {
+				i {
+					font-size: 20px;
+					margin-left: 5px;
+					padding: 5px;
+				}
+			}
+			.box__message {
+				display: none;
+			}
+			.box__user{
+				display: none;
+			}
+		}
+
+		@include mobile {
+			display: none;
+		}
+	}
+}

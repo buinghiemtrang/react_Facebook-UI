@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+}
+
+html,
+body {
+	font-family: "Open Sans", sans-serif;
+	background-color: $main-bg;
+
+	@include mobile {
+		background-color: $main-bg-mobile;
+	}
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: unset;
+}
+
+@each $val in $numbers {
+    .grid-col-#{$val} {
+        grid-template-columns: repeat($val, 1fr);
+    }
+}
+
+@each $val in $numbers {
+    .grid-col-md-#{$val} {
+        @include tablet {
+            grid-template-columns: repeat($val, 1fr);
+        }
+    }
+}
+
+@each $val in $numbers {
+    .grid-col-sm-#{$val} {
+        @include mobile {
+            grid-template-columns: repeat($val, 1fr);
+        }
+    }
+}
+
+.container {
+	width: 100%;
+	max-width: 1620px;
+	padding: 0 15px;
+	margin: auto;
+
+	@include tablet {
+		padding: 0 20px;
+	}
+
+	@include mobile {
+		padding: 0 10px;
+	}
+}
+
+.main {
+	margin-top: $header-tablet-height;
+	margin-bottom: 2rem;
+	min-height: 100vh;
+
+	@include tablet {
+		margin-top: calc(#{$header-tablet-height} + 10px);
+		min-height: 0;
+	}
+
+	@include mobile {
+		margin-top: calc(#{$header-mobile-height} + 0px);
+		min-height: 0;
+	}
+}
